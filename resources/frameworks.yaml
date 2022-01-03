@@ -47,7 +47,10 @@ autosklearn:
 #    _n_jobs: 1
 
 autosklearn_hyperboost:
-    version: 'experimental'
+  version: 'stable'
+
+autosklearn_test:
+  version: 'stable'
 
 autosklearn2:
   extends: autosklearn

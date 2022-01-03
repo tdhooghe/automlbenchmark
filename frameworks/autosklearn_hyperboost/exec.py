@@ -12,16 +12,8 @@ os.environ['OMP_NUM_THREADS'] = '1'
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 os.environ['MKL_NUM_THREADS'] = '1'
 
-from pathlib import Path
-import sys
-path_root = Path(__file__).parents[3]
-sys.path.append(str(path_root))
-test = '/home/thomas/PycharmProjects/auto-sklearn'
-sys.path.append(test)
-print(f'Path {sys.path}')
-
 import autosklearn
-print(f'Path to module: {autosklearn.__file__}')
+
 from autosklearn.estimators import AutoSklearnClassifier, AutoSklearnRegressor
 import autosklearn.metrics as metrics
 from packaging import version
@@ -32,7 +24,6 @@ from frameworks.shared.utils import Timer, system_memory_mb, walk_apply, zip_pat
 log = logging.getLogger(__name__)
 
 askl_version = version.parse(autosklearn.__version__)
-
 
 def run(dataset, config):
     askl_method_version = 2 if config.framework_params.get('_askl2', False) else 1
