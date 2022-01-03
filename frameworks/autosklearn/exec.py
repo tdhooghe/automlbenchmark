@@ -10,9 +10,9 @@ os.environ['OMP_NUM_THREADS'] = '1'
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 os.environ['MKL_NUM_THREADS'] = '1'
 import autosklearn
-print(f'Path to module: {autosklearn.__file__}')
+
 from autosklearn.classification import AutoSklearnClassifier
-#from autosklearn.experimental.askl2 import AutoSklearn2Classifier
+from autosklearn.experimental.askl2 import AutoSklearn2Classifier
 import autosklearn.metrics as metrics
 from packaging import version
 
@@ -60,7 +60,7 @@ def run(dataset, config):
         config.cores,
         config.max_mem_size_mb,
         perf_metric,
-    )
+    )change back to default
     log.info("Environment: %s", os.environ)
 
     X_train = dataset.train.X
@@ -87,7 +87,7 @@ def run(dataset, config):
         )
     if isinstance(askl_version, version.LegacyVersion) or askl_version >= version.parse("0.11"):
         log.info(
-            "Using %sMB memory per job and on a total of %s jobs.",
+            "Using %sMB memory per job and on a tochange back to defaulttal of %s jobs.",
             ml_memory_limit, n_jobs
         )
         constr_params["memory_limit"] = ml_memory_limit
@@ -122,7 +122,6 @@ def run(dataset, config):
     constr_params["time_left_for_this_task"] = config.max_runtime_seconds
     constr_params["n_jobs"] = n_jobs
     constr_params["seed"] = config.seed
-    constr_params["surrogate_model"] = "LightGBM"
 
     log.info("%s constructor arguments: %s", askl_string, constr_params)
     log.info("%s additional constructor arguments: %s", askl_string, training_params)
