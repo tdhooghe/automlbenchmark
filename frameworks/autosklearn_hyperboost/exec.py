@@ -5,14 +5,24 @@ import shutil
 import tempfile as tmp
 import warnings
 
+
+
 os.environ['JOBLIB_TEMP_FOLDER'] = tmp.gettempdir()
 os.environ['OMP_NUM_THREADS'] = '1'
 os.environ['OPENBLAS_NUM_THREADS'] = '1'
 os.environ['MKL_NUM_THREADS'] = '1'
+
+from pathlib import Path
+import sys
+path_root = Path(__file__).parents[3]
+sys.path.append(str(path_root))
+test = '/home/thomas/PycharmProjects/auto-sklearn'
+sys.path.append(test)
+print(f'Path {sys.path}')
+
 import autosklearn
 print(f'Path to module: {autosklearn.__file__}')
-from autosklearn.classification import AutoSklearnClassifier
-#from autosklearn.experimental.askl2 import AutoSklearn2Classifier
+from autosklearn.estimators import AutoSklearnClassifier, AutoSklearnRegressor
 import autosklearn.metrics as metrics
 from packaging import version
 
@@ -99,13 +109,14 @@ def run(dataset, config):
             ensemble_memory_limit = max(math.ceil(ml_memory_limit - (total_memory_mb - config.max_mem_size_mb)),
                                         math.ceil(ml_memory_limit / 3),  # default proportions
                                         1024)  # 1024 is autosklearn defaults
-        log.info("Using %sMB memory per ML job and %sMB for ensemble job on a total of %s jobs.", ml_memory_limit, ensemble_memory_limit, n_jobs)
+        log.info("Using %sMB memory per ML job and %sMB for ensemble job on a total of %s jobs.", ml_memory_limit,
+                 ensemble_memory_limit, n_jobs)
         constr_params["ml_memory_limit"] = ml_memory_limit
         constr_params["ensemble_memory_limit"] = ensemble_memory_limit
 
     log.warning("Using meta-learned initialization, which might be bad (leakage).")
     if is_classification:
-        estimator = AutoSklearn2Classifier if askl_method_version == 2 else AutoSklearnClassifier
+        estimator = AutoSklearnClassifier
     else:
         if askl_method_version == 2:
             log.warning(
@@ -176,8 +187,8 @@ def save_artifacts(estimator, config):
                     tmp_directory,
                     _copy,
                     filter_=lambda path: (
-                        os.path.splitext(path)[1] not in ignore_extensions
-                        and not os.path.isdir(path)
+                            os.path.splitext(path)[1] not in ignore_extensions
+                            and not os.path.isdir(path)
                     ),
                 )
             else:
