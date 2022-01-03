@@ -60,7 +60,7 @@ def run(dataset, config):
         config.cores,
         config.max_mem_size_mb,
         perf_metric,
-    )change back to default
+    )
     log.info("Environment: %s", os.environ)
 
     X_train = dataset.train.X
