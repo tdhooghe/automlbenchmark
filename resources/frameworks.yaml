@@ -57,6 +57,11 @@ autosklearn2:
   params:
     _askl2: true
 
+autosklearn2_hyperboost:
+  extends: autosklearn_hyperboost
+  params:
+    _askl2: true
+
 AutoWEKA:
   version: 'stable'
   description: |
