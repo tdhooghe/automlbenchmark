@@ -23,7 +23,6 @@ lib/
 logs/
 models/
 predictions/
-results/
 scores/
 setup/
 _site/
