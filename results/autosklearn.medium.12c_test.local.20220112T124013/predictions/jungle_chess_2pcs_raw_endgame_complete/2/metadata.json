@@ -1,0 +1,26 @@
+{
+    "framework": "autosklearn",
+    "framework_params": {},
+    "framework_version": "0.14.2",
+    "type": "classification",
+    "name": "jungle_chess_2pcs_raw_endgame_complete",
+    "fold": 2,
+    "metric": "logloss",
+    "metrics": [
+        "logloss",
+        "acc",
+        "balacc"
+    ],
+    "seed": 1496859409,
+    "job_timeout_seconds": 2400,
+    "max_runtime_seconds": 1200,
+    "cores": 12,
+    "max_mem_size_mb": 49643,
+    "min_vol_size_mb": 32768,
+    "input_dir": "/home/thomas/.cache/openml/org/openml/www",
+    "output_dir": "/home/thomas/PycharmProjects/automlbenchmark/results/autosklearn.medium.12c_test.local.20220112T124013",
+    "output_predictions_file": "/home/thomas/PycharmProjects/automlbenchmark/results/autosklearn.medium.12c_test.local.20220112T124013/predictions/jungle_chess_2pcs_raw_endgame_complete/2/predictions.csv",
+    "ext": {},
+    "type_": "multiclass",
+    "output_metadata_file": "/home/thomas/PycharmProjects/automlbenchmark/results/autosklearn.medium.12c_test.local.20220112T124013/predictions/jungle_chess_2pcs_raw_endgame_complete/2/metadata.json"
+}

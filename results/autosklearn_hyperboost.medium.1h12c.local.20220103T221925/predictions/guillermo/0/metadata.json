@@ -1,0 +1,27 @@
+{
+    "framework": "autosklearn_hyperboost",
+    "framework_params": {},
+    "framework_version": "0.14.3",
+    "type": "classification",
+    "name": "guillermo",
+    "fold": 0,
+    "metric": "auc",
+    "metrics": [
+        "auc",
+        "logloss",
+        "acc",
+        "balacc"
+    ],
+    "seed": 1743001721,
+    "job_timeout_seconds": 7200,
+    "max_runtime_seconds": 3600,
+    "cores": 12,
+    "max_mem_size_mb": 49530,
+    "min_vol_size_mb": 32768,
+    "input_dir": "/home/thomas/.cache/openml/org/openml/www",
+    "output_dir": "/home/thomas/PycharmProjects/automlbenchmark/results/autosklearn_hyperboost.medium.1h12c.local.20220103T221925",
+    "output_predictions_file": "/home/thomas/PycharmProjects/automlbenchmark/results/autosklearn_hyperboost.medium.1h12c.local.20220103T221925/predictions/guillermo/0/predictions.csv",
+    "ext": {},
+    "type_": "binary",
+    "output_metadata_file": "/home/thomas/PycharmProjects/automlbenchmark/results/autosklearn_hyperboost.medium.1h12c.local.20220103T221925/predictions/guillermo/0/metadata.json"
+}
