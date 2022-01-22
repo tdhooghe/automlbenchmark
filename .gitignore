@@ -18,20 +18,19 @@ venv/
 *.swp
 
 # tmp files
-.ipynb_checkpoints/
-lib/
-logs/
-models/
-predictions/
-results/
-scores/
-setup/
-_site/
-*.lock
-*.log
-*.csv
-*.arff
-*.parquet
+#.ipynb_checkpoints/
+#lib/
+#logs/
+#models/
+#predictions/
+#scores/
+#setup/
+#_site/
+#*.lock
+#*.log
+#*.csv
+#*.arff
+#*.parquet
 
 # binary files
 *.zip
