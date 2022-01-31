@@ -1,0 +1,15 @@
+---
+
+- name: Helena
+  openml_task_id: 168329
+
+- name: higgs
+  openml_task_id: 146606
+
+- name: numerai28.6
+  openml_task_id: 167120
+
+- name: Robert
+  openml_task_id: 168332
+
+
